@@ -36,8 +36,32 @@
 
 </div>
 <!-- /.container-fluid -->
-
+<?php 
+$users = User::findAllUsers();
+foreach($users as $user){
+?>
+<p><?php echo $user->username ?></p>
+<a href="users.php?destroy=<?php echo $user->id ?>">delete</a>
+<?php } ?>
         </div>
         <!-- /#page-wrapper -->
+        <form action="<?php storeUser() ?>" method="post">
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="text" name="first_name" placeholder="first_name">
+            <input type="text" name="last_name" placeholder="last_name">
+            <input type="submit" name="store_user">
+    
+         </form>
+         <form action="<?php updateUser(7); ?>" method="post">
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="text" name="first_name" placeholder="first_name">
+            <input type="text" name="last_name" placeholder="last_name">
+            <input type="submit" name="update_user" value="update">
+    
+         </form>
 
   <?php include("includes/footer.php"); ?>
+<?php
+ destroyUser();

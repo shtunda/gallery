@@ -1,0 +1,17 @@
+{
+    "name": "helgen/gallery",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": ["src/Functions/index.php"]
+    },
+    "authors": [
+        {
+            "name": "shtunda",
+            "email": "seredyukoleg@gmail.com"
+        }
+    ],
+    "require": {}
+
+}

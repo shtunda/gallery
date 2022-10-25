@@ -16,11 +16,8 @@
             </li>
         </ol>
         <?php
-    //    $session->logout();
-        
-       
-       
-       
+    //
+
         ?>
     </div>
 </div>
