@@ -53,7 +53,7 @@ foreach($users as $user){
             <input type="submit" name="store_user">
     
          </form>
-         <form action="<?php updateUser(7); ?>" method="post">
+         <form action="" method="post">
             <input type="text" name="username" placeholder="username">
             <input type="password" name="password" placeholder="password">
             <input type="text" name="first_name" placeholder="first_name">
@@ -65,3 +65,11 @@ foreach($users as $user){
   <?php include("includes/footer.php"); ?>
 <?php
  destroyUser();
+//  if(isset($_POST['update_user'])){
+    $user = User::findUserById(7);
+    $user->username = "updated";
+    $user->password = "updated";
+    $user->first_name = "updated";
+    $user->last_name = "updated";
+    $user->update();
+//  }

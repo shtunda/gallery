@@ -22,18 +22,18 @@ function storeUser(){
     }
 }
 
-function updateUser($id){
-    if(isset($_POST['update_user'])){
-    $user = new User();
-    $user->id = $id;
-    $user->username = $_POST['username'];
-    $user->password = $_POST['password'];
-    $user->first_name = $_POST['first_name'];
-    $user->last_name = $_POST['last_name'];
-    $user->update();
-    redirect('users.php');
-    }
-}
+// function updateUser($id){
+//     if(isset($_POST['update_user'])){
+//     $user = new User();
+//     $user->id = $id;
+//     $user->username = $_POST['username'];
+//     $user->password = $_POST['password'];
+//     $user->first_name = $_POST['first_name'];
+//     $user->last_name = $_POST['last_name'];
+//     $user->update();
+//     redirect('users.php');
+//     }
+// }
 
 function destroyUser()
 {

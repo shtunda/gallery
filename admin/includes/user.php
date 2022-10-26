@@ -82,13 +82,13 @@ class User {
     public function update(){
         global $database;
         $properties = $this->properties();
-        $propertiesPair = [];
+        $propertiesPairs = [];
         foreach($properties as $key => $value){
-            $propertiesPair[] = "{$key} = '{$value}'";
+            $propertiesPairs[] = "$key = '$value'";
         }
         $sql = "UPDATE " . self::$db_table . " SET ";
-        $sql .= implode(", ", $propertiesPair);
-        $sql .= " WHERE id = " .  $this->id;
+        $sql .= implode(", ", $propertiesPairs);
+        $sql .= " WHERE id = " . $this->id;
         $database->query($sql);
         return $database->connection->affected_rows() === 1 ? true : false;
     }
