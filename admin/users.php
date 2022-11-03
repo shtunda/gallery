@@ -37,7 +37,7 @@
 </div>
 <!-- /.container-fluid -->
 <?php 
-$users = User::findAllUsers();
+$users = User::findAll();
 foreach($users as $user){
 ?>
 <p><?php echo $user->username ?></p>
@@ -65,11 +65,3 @@ foreach($users as $user){
   <?php include("includes/footer.php"); ?>
 <?php
  destroyUser();
-//  if(isset($_POST['update_user'])){
-    $user = User::findUserById(7);
-    $user->username = "updated";
-    $user->password = "updated";
-    $user->first_name = "updated";
-    $user->last_name = "updated";
-    $user->update();
-//  }

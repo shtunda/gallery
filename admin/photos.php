@@ -1,4 +1,9 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/header.php"); 
+if(!$session->isSignedIn()){
+    redirect('login.php');
+ }
+ $photos = Photo::findAll();
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -22,15 +27,41 @@
             Photos
             <small>Subheading</small>
         </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-file"></i> Blank Page
-            </li>
-        </ol>
+       <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Size</th>
+                </tr>
+                <tbody>
+                <?php
+                      foreach($photos as $photo) :
+                        $path = 'images/' . $photo->file_name;
+                 ?>
+                 <tr>
+                    <td><?php echo $photo->id ?></td>
+                    <td><img src="<?php echo $photo->imagePath() ?>" alt="" width="62px" height="62px">
+                        <div class="pictures_link">
+                            <a href="delete_photo.php?photo_id=<?php echo $photo->id ?>">Delete</a>
+                            <a href="">Edit</a>
+                            <a href="">View</a>
+                        </div>
+                </td>
+                    <td><?php echo $photo->file_name ?></td>
+                    <td><?php echo $photo->title ?></td>
+                    <td><?php echo $photo->size ?></td>
+                 </tr>
+                 <?php endforeach; ?>
+                </tbody>
+            </thead>
+        </table>
+       </div>
     </div>
+   
 </div>
 <!-- /.row -->
 
