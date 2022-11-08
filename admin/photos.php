@@ -44,10 +44,10 @@ if(!$session->isSignedIn()){
                  ?>
                  <tr>
                     <td><?php echo $photo->id ?></td>
-                    <td><img src="<?php echo $photo->imagePath() ?>" alt="" width="62px" height="62px">
+                    <td><img class="admin-photo" src="<?php echo $photo->imagePath() ?>" alt="">
                         <div class="pictures_link">
                             <a href="delete_photo.php?photo_id=<?php echo $photo->id ?>">Delete</a>
-                            <a href="">Edit</a>
+                            <a href="edit_photo.php?id=<?php echo $photo->id ?>">Edit</a>
                             <a href="">View</a>
                         </div>
                 </td>
